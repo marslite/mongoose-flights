@@ -11,13 +11,14 @@ async function index(req,res){
     res.render('flights/index', {flights});
 }
 
+
 function newFlight(req,res){
     res.render('flights/new', {errorMsg: 'Failed rendering flights/new'});
 }
 
 async function create(req,res){
     // req.body.cast = req.body.cast.trim(); //Removing unnecessary white space
-    if(req.body.cast){
+    if(req.body){
         // req.body.cast = req.body.cast.split(/\s*,\s*/);
          //Split cast into an array if it is not an empty string
         try{

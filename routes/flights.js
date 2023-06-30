@@ -3,6 +3,9 @@ var router = express.Router();
 
 const flightsCtrl = require('../controllers/flights');
 
+//Temporary
+// router.get('/', flightsCtrl.indexHome);
+
 /* GET Flights listing. */
 router.get('/', flightsCtrl.index);
 
