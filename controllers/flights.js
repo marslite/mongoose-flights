@@ -16,9 +16,10 @@ function newFlight(req,res){
 }
 
 async function create(req,res){
-    req.body.cast = req.body.cast.trim(); //Removing unnecessary white space
+    // req.body.cast = req.body.cast.trim(); //Removing unnecessary white space
     if(req.body.cast){
-        req.body.cast = req.body.cast.split(/\s*,\s*/); //Split cast into an array if it is not an empty string
+        // req.body.cast = req.body.cast.split(/\s*,\s*/);
+         //Split cast into an array if it is not an empty string
         try{
             await Flight.create(req.body);
             //Redirect after Creating Updatind Deleting data

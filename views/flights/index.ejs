@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>HERE</h2>
+<h2>Flighs List</h2>
 <table>
   <thead>
     <tr>
@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <!-- Write the line of EJS to iterate over movies using forEach -->
-    <%= flights.forEach(function(f) { %>
+    <% flights.forEach(function(f) { %>
       <tr>
         <td><%= f.airport %></td>
         <td><%= f.airport %></td>
@@ -25,4 +25,4 @@
   </tbody>
 </table>
 
-<%- include('../partials/header') %>
+<%- include('../partials/footer') %>
