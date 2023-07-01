@@ -17,6 +17,7 @@ function newFlight(req,res){
 }
 
 async function create(req,res){
+    // const destinationFromtheDB = await FlightModel.findById(req.params.id);
     // req.body.cast = req.body.cast.trim(); //Removing unnecessary white space
     if(req.body){
         // req.body.cast = req.body.cast.split(/\s*,\s*/);
@@ -25,9 +26,11 @@ async function create(req,res){
             await Flight.create(req.body);
             //Redirect after Creating Updatind Deleting data
             res.redirect('/flights/new');
+            console.log("SUCCESS SUCCESS");
+            // console.log(destinationFromtheDB);
         } catch (err){
             //Catching any kind of error if the the try block fails
-            console.log(err); //Display the error to better understand what happenned
+            console.log('ERROR ERROR'); //Display the error to better understand what happenned
             res.render('flights/new',{errorMsg: err.message});
         }
     }
