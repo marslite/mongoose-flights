@@ -26,8 +26,8 @@
   <div>Destinations:
     <td>
         <% flights.destinations.forEach(function(des){  %>
-            <%= des.airport %>
-            <%= des.arrivals %>
+            <div><%= 'Airport: ' + des.airport + ' ' + 'Arrival: ' + des.arrival%></div>
+
             <% }) %>
     </td>
   </div>
@@ -55,7 +55,7 @@
 </label><br>
     
   <label>Arrival:
-    <input type="date" name="arrivals">
+    <input type="date" name="arrival">
   </label><br>
   <button type="submit">Add Destination</button>
 </form>

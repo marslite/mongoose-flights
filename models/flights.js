@@ -13,8 +13,7 @@ const destinationSchema = new Schema({
         type: Date
     }
 
-
-})
+},{timestamps: true})
 
 
 const flightSchema = new Schema({
