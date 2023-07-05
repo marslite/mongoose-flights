@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const flights = require('./flights');
 const Schema = mongoose.Schema;
 
 const ticketSchema = new Schema({

@@ -7,7 +7,8 @@ module.exports = {
     index,
     newFlight,
     create,
-    show
+    show,
+    ticket
 };
 
 async function index(req,res){
@@ -41,7 +42,7 @@ async function create(req,res){
 }
 
 
-async function show(res,req){
+async function show(req,res){
     Flight.findById(req.params.id, function(err, flight) {
         Ticket.find({flight: flight._id}, function(err, tickets) {
           // Now you can pass both the flight and tickets in the res.render call
@@ -53,4 +54,9 @@ async function show(res,req){
         });
     });
     
+}
+
+
+function ticket(req,res){
+    res.render('flights/ticket', {id: req.params.id});
 }

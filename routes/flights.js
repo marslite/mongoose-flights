@@ -16,5 +16,10 @@ router.get('/new', flightsCtrl.newFlight);
 router.post('/', flightsCtrl.create);
 
 
+//In relation to ticket/new
+
+router.get('/:id/tickets/new', flightsCtrl.ticket)
+
+
 
 module.exports = router;

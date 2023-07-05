@@ -17,14 +17,6 @@ async function show(req,res){
     
     
 
-    // try{
-
-    //     const destinationFromtheDB = await FlightModel.findById(req.params.id);
-    //     console.log('CHECK HERE', req.params.id);
-    //     res.render('flights/show', {flights:destinationFromtheDB});
-    // }catch(err){
-    //     res.send(err)
-    // }
 
 
 
