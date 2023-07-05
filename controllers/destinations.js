@@ -1,25 +1,38 @@
-const FlightModel = require('../models/flights');
-
+const Flight = require('../models/flights');
+const Ticket = require('../models/ticket')
 module.exports = {show,create}
 
 async function show(req,res){
 
-    try{
 
-        const destinationFromtheDB = await FlightModel.findById(req.params.id);
-        console.log('CHECK HERE', req.params.id);
-        res.render('flights/show', {flights:destinationFromtheDB});
-    }catch(err){
-        res.send(err)
-    }
-}
+     const flight = await Flight.findById(req.params.id) 
+     const tickets =  await  Ticket.find({flight: flight._id})
+          // Now you can pass both the flight and tickets in the res.render call
+          console.log(flight);
+          console.log(tickets);
+          
+          res.render('flights/show',{flight,tickets})
+          console.log('Mission complete?s')
+        };
+    
+    
+
+    // try{
+
+    //     const destinationFromtheDB = await FlightModel.findById(req.params.id);
+    //     console.log('CHECK HERE', req.params.id);
+    //     res.render('flights/show', {flights:destinationFromtheDB});
+    // }catch(err){
+    //     res.send(err)
+    // }
+
 
 
 
 async function create(req,res){
 
     try{
-        const flightFromThedb = await FlightModel.findById(req.params.id);
+        const flightFromThedb = await Flight.findById(req.params.id);
         //Add the  destination to the airplane we found
         flightFromThedb.destinations.push(req.body);
         //After completing this operation and changing the document

@@ -1,9 +1,13 @@
+const flights = require('../models/flights');
 const Flight = require('../models/flights');
+const Ticket = require('../models/ticket');
+
 
 module.exports = {
     index,
     newFlight,
-    create
+    create,
+    show
 };
 
 async function index(req,res){
@@ -34,4 +38,19 @@ async function create(req,res){
             res.render('flights/new',{errorMsg: err.message});
         }
     }
+}
+
+
+async function show(res,req){
+    Flight.findById(req.params.id, function(err, flight) {
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+          // Now you can pass both the flight and tickets in the res.render call
+          console.log(flight);
+          console.log(tickets);
+          
+          res.render('flights/show',{flight:flight,tickets:tickets})
+          console.log('Mission complete?s')
+        });
+    });
+    
 }

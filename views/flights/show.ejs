@@ -16,16 +16,16 @@
 
 
 <section id="show-page">
-  <div>Airplane:  <td id="dir"><%= flights.airplane %> </td> </div>  
-  <!-- <td><%= flights.airplane %></td> -->
-  <div>Airport:  <td><%= flights.airport %></td> </div>
+  <div>Airplane:  <td id="dir"><%= flight.airplane %> </td> </div>  
+  <!-- <td><%= flight.airplane %></td> -->
+  <div>Airport:  <td><%= flight.airport %></td> </div>
 
-  <div>Flight Number: <td><%= flights.flightNo %></td></div>
+  <div>Flight Number: <td><%= flight.flightNo %></td></div>
   
-  <div>Departs: <td><%= flights.departs %></td> </div>
+  <div>Departs: <td><%= flight.departs %></td> </div>
   <div>Destinations:
     <td>
-        <% flights.destinations.forEach(function(des){  %>
+        <% flight.destinations.forEach(function(des){  %>
             <div><%= 'Airport: ' + des.airport + ' ' + 'Arrival: ' + des.arrival%></div>
 
             <% }) %>
@@ -41,7 +41,7 @@
 
 
 <h2>Enter a Destination for this flight</h2>
-<form action='/flights/<%=flights._id%>/destinations' method="POST">
+<form action='/flights/<%=flight._id%>/destinations' method="POST">
 
 
 <label>Destination
@@ -59,6 +59,21 @@
   </label><br>
   <button type="submit">Add Destination</button>
 </form>
+
+
+<section id="show-tickets">
+ 
+  <div>Tickets:
+    <td>
+
+        <% tickets.forEach(function(tic){  %>
+            <div><%= 'Seat: ' + tic.seat + ' ' + 'Price: ' + tic.price + ' ' + 'Flight' + tic.flight%></div>
+            <% }) %>
+    </td>
+  </div>
+
+
+</section>
 
 
 
