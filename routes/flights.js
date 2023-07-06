@@ -15,7 +15,7 @@ router.get('/new', flightsCtrl.newFlight);
 // POST /flights
 router.post('/', flightsCtrl.create);
 
-
+//Part 3
 //In relation to ticket/new
 
 router.get('/:id/tickets/new', flightsCtrl.ticket)

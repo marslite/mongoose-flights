@@ -3,33 +3,16 @@
 <h2>Insert a Ticket</h2>
 <form action="/flights" method="POST">
 
-</label><br>
-<label>Airplane
-  <select name="airplane">
-    <option value="American">American</option>
-    <option value="Southwest">Southwest</option>
-    <option value="United">United</option>
-  </select>
-</label><br>
 
-<label>Airport
-  <select name="airport">
-    <option value="AUS">AUS</option>
-    <option value="DFW">DFW</option>
-    <option value="DEN">DEN</option>
-    <option value="LAX">LAX</option>
-    <option value="SAN">SAN</option>
-  </select>
-</label><br>
-    
-  <label>Flight Number(*):
-    <input type="number" name="flightNo">
-  </label><br>
-  <label>Departs:
-    <input type="date" name="departs">
-  </label><br>
-  <button type="submit">Add Ticket</button>
+<br><label>Seat</label>
+<input type="text" name="seat" placeholder="Insert Seat Number"><br>
+<br><label>Price</label>
+<input type="number" name="price" placeholder="Insert $"><br>
+
+<br><button type="submit">Add Ticket</button><br>
+<br><div> <b>Flight ID: </b>  <%= id %> </div>
+
 </form>
-<p><%= `Bon Voyage!` %></p>
+<p><%= `Ticket Meter ~ Powered by Mattia ` %></p>
 
 <%- include('../partials/footer') %>

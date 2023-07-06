@@ -7,7 +7,6 @@ module.exports = {
     index,
     newFlight,
     create,
-    show,
     ticket
 };
 
@@ -42,19 +41,6 @@ async function create(req,res){
 }
 
 
-async function show(req,res){
-    Flight.findById(req.params.id, function(err, flight) {
-        Ticket.find({flight: flight._id}, function(err, tickets) {
-          // Now you can pass both the flight and tickets in the res.render call
-          console.log(flight);
-          console.log(tickets);
-          
-          res.render('flights/show',{flight:flight,tickets:tickets})
-          console.log('Mission complete?s')
-        });
-    });
-    
-}
 
 
 function ticket(req,res){
