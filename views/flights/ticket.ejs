@@ -1,18 +1,20 @@
 <%- include('../partials/header') %>
 
-<h2>Insert a Ticket</h2>
-<form action="/flights" method="POST">
+<h2>Insert a Ticket 🎫</h2>
+<form action="/flights/<%=id%>/tickets/new" method="POST">
 
 
 <br><label>Seat</label>
-<input type="text" name="seat" placeholder="Insert Seat Number"><br>
+<input type="text" name="seat"  pattern="^[A-F][1-9]\d?" placeholder="Insert Seat Number"><br>
 <br><label>Price</label>
-<input type="number" name="price" placeholder="Insert $"><br>
+<input type="number" name="price" min="1"  placeholder="Insert $"><br>
 
-<br><button type="submit">Add Ticket</button><br>
+<br><button type="submit">Submit</button><br>
+<a href="/flights/<%=id%>/">Add Ticket HOME</a>
 <br><div> <b>Flight ID: </b>  <%= id %> </div>
 
 </form>
-<p><%= `Ticket Meter ~ Powered by Mattia ` %></p>
+
+<br><p><%= `Ticket Meter ~ Powered by Mattia ` %></p><br>
 
 <%- include('../partials/footer') %>

@@ -58,24 +58,24 @@
     <input type="date" name="arrival">
   </label><br>
   <button type="submit">Add Destination</button>
-</form>
+</form><br>
 
 
 <section id="show-tickets">
 
-  <button><a href="/flights/<%= flight._id %>/tickets/new" class="button"> New Ticket</a> </button>
+  <button><a href="/flights/<%= flight._id %>/tickets/new" class="button"> New Ticket</a> </button><br>
 
 
 
  
-  <div>Tickets:
+  <br><div>Tickets 🎫:
     <td>
 
         <% tickets.forEach(function(tic){  %>
             <div><%= 'Seat: ' + tic.seat + ' ' + 'Price: ' + tic.price + ' ' + 'Flight' + tic.flight%></div>
             <% }) %>
     </td>
-  </div>
+  <br></div>
 
 
 </section>

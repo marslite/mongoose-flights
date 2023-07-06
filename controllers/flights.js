@@ -7,7 +7,8 @@ module.exports = {
     index,
     newFlight,
     create,
-    ticket
+    ticket,
+    ticketCreate
 };
 
 async function index(req,res){
@@ -21,6 +22,7 @@ function newFlight(req,res){
 }
 
 async function create(req,res){
+    console.log(req.body, '<----h');
     // const destinationFromtheDB = await FlightModel.findById(req.params.id);
     // req.body.cast = req.body.cast.trim(); //Removing unnecessary white space
     if(req.body){
@@ -42,7 +44,40 @@ async function create(req,res){
 
 
 
-
 function ticket(req,res){
     res.render('flights/ticket', {id: req.params.id});
 }
+
+async function ticketCreate(req,res){
+    console.log('Are we getting inside here?')
+    try{
+        req.body.flight = req.params.id; //Flight ID
+        
+        // const flightFromThedb = await Flight.findById(req.params.id);
+        //Add the  destination to the airplane we found
+        console.log(req.body, "<--- This is req.body")
+        const test = await Ticket.create(req.body)
+        console.log(test, "This is req.body when passed to Ticket.create");
+        console.log('helloo');
+        // res.redirect(`flights/${req.params.id}`);
+
+        // const flight = red.params.id;
+        // const ticket = req.body;
+        console.log(req.body, "Check here for Body");
+        console.log(req.params.id, 'Double checking');
+        console.log(req.body, "Check here for Body");
+        //Continue from here
+        res.redirect(`/flights/${req.params.id}`);
+
+        // res.render(`/flights/${req.params.id}/`, {tickets: req.body});
+
+        
+    }catch(err){
+        res.send(err);
+    }
+
+}
+
+
+
+

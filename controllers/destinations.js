@@ -5,10 +5,10 @@ module.exports = {show,create}
 async function show(req,res){
 
      const flight = await Flight.findById(req.params.id) 
-     const tickets =  await  Ticket.find({flight: flight._id})
+     const tickets =  await  Ticket.find({flight: req.params.id})
           // Now you can pass both the flight and tickets in the res.render call
-          console.log(flight);
-          console.log(tickets);
+        //   console.log(flight);
+          console.log(tickets, '<------ All the tickets');
           
           res.render('flights/show',{flight,tickets})
           console.log('Mission complete?')
@@ -21,6 +21,7 @@ async function show(req,res){
 
 
 async function create(req,res){
+
 
     try{
         const flightFromThedb = await Flight.findById(req.params.id);
